@@ -24,7 +24,7 @@ async function main() {
     console.log(songs);
     
     var audio = new Audio(songs[0]);
-    audio.play();
+    // audio.play();
 
     audio.addEventListener("loadeddata", () => {
      let duration = audio.duration; // Duration in seconds
