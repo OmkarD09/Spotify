@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rels="icon" href="./assets/logo.png"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"/>
+    <title>Spotify - Web Player: Music for everyone</title>
+</head>
+<body>
+    
+    <div class="main">
+        <div class="sidebar">
+            <div class="nav">
+                <div class="nav-option" style="opacity: 1;"> 
+                    <i class="fa-solid fa-house"></i>
+                    <a href="#">Home</a>
+                </div>
+                <div class="nav-option">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <a href="#">Search</a>
+                </div>
+            </div>
+            <div class="library">
+                <div class="options">
+                    <div class="lib-option nav-option "> 
+                        <img src="./assets/library_icon.png" alt="Library Icon"/>
+                        <a href="#">Your Library</a>
+                    </div>
+                    <div class="icons">
+                        <i class="fa-solid fa-plus"></i>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </div>
+                <div class="lib-box">
+                    <div class="box">
+                        <p class="box-p1">Create your first playlist</p>
+                        <p class="box-p2">It's easy, we'll help you</p>
+                        <button class="badge">Create a playlist</button>
+                    </div>
+                    <div class="box">
+                        <p class="box-p1">Let's find some podcast to follow</p>
+                        <p class="box-p2">We'll keep you update on new episodes</p>
+                        <button class="badge">Browse podcats</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="sticky-nav">
+                <div class="sticky-nav-icons">
+                    <img src="./assets/backward_icon.png" alt="Backward"/>
+                    <img src="./assets/forward_icon.png" class="hide" alt="Forward"/>
+                </div>
+                <div class="sticky-nav-options">
+                    <button class="badge nav-item hide">Explore Premium</button>
+                    <button class="badge nav-item dark-badge"><i class="fa-regular fa-circle-down" style="margin-right: 5px;"></i>Install App</button>
+                    <i class="fa-regular fa-user nav-item"></i>
+                </div>
+            </div>
+
+                <h2>Recently Played</h2>
+                <div class="card-container">
+                    <div class="card">
+                        <img src="./assets/agartumsaathho.jpeg"/>
+                        <p class="card-title">Agar Tum Saath Ho</p>
+                        <p class="card-info">Arijit Singh, Alka Yagnik</p>
+                    </div>
+                </div>
+
+                <h2>Best of Arijit Singh</h2>
+                <div class="card-container">
+                    <div class="card">
+                        <img src="./assets/agartumsaathho.jpeg"/>
+                        <p class="card-title">Agar Tum Saath Ho</p>
+                        <p class="card-info">Arijit Singh, Alka Yagnik</p>
+                    </div>
+
+                    <div class="card">
+                        <img src="./assets/phirmohabbat.jpeg"/>
+                        <p class="card-title">Phir Mohabbat</p>
+                        <p class="card-info">Arijit Singh, Mohmmad Irfan</p>
+                    </div>
+                    <div class="card">
+                        <img src="./assets/humdard.jpeg"/>
+                        <p class="card-title">Humdard</p>
+                        <p class="card-info">Arijit Singh</p>
+                    </div>
+                </div>
+                <h2>Best Of Radiohead</h2>
+                <div class="card-container">                   
+                    <div class="card">
+                        <img src="./assets/letdown.jpeg"/>
+                        <p class="card-title">Let Down</p>
+                        <p class="card-info">Radiohead</p>
+                    </div>
+                    <div class="card">
+                        <img src="./assets/nosurprises.jpeg"/>
+                        <p class="card-title">No Surprises</p>
+                        <p class="card-info">Raiohead</p>
+                    </div>
+                    <div class="card">
+                        <img src="./assets/creep.jpeg"/>
+                        <p class="card-title">Creep</p>
+                        <p class="card-info">Radiohead</p>
+                    </div>
+
+                </div>
+            <div class="footer">
+                <div class="line">
+                </div>
+            </div>
+        </div>
+        <div class="music-player">
+            <div class="album">
+                <img src="./assets/conangrau.jpg" class="mp-img1" alt="Conan Gray Heather Album Cover"/>
+                <div>
+                    <a class="mp-a1" href="#">Heather</a> 
+                    <br>
+                    <a class="mp-a2" href="#">Conan Gray</a>
+                </div>
+                <img src="./assets/album_icon1.png" class="mp-img2" alt="Album Icon"/>
+
+            </div>
+            <div class="player">
+                <div class="player-control">
+                    <img src="./assets/player_icon1.png" class="player-control-icon" alt="Shuffle"/>
+                    <img src="./assets/player_icon2.png" class="player-control-icon" alt="Previous"/>
+                    <img src="./assets/player_icon3.png" class="player-control-icon player-icon-play" alt="Play"/>
+                    <img src="./assets/player_icon4.png" class="player-control-icon" alt="Next"/>
+                    <img src="./assets/player_icon5.png" class="player-control-icon" alt="Repeat"/>
+                </div>
+                <div class="playback-bar">
+                    <span class="curr-time">00:00</span>
+                    <input type="range" min="0" max="100" class="progress-bar" step="1" title="Playback progress bar"/> 
+                    <span class="tot-time">3:33</span>
+                </div>
+            </div>
+            <div class="control2">
+                <img src="./assets/controls_icon1.png" class="ctrl-img1" alt="Control Icon 1"/>
+                <img src="./assets/controls_icon2.png" class="ctrl-img2" alt="Control Icon 2"/>
+                <img src="./assets/controls_icon3.png" class="ctrl-img3" alt="Control Icon 3"/>
+                <img src="./assets/controls_icon4.png" class="ctrl-img4" alt="Control Icon 4"/>
+                <img src="./assets/controls_icon5.png" class="ctrl-img5" alt="Control Icon 5"/>
+                <input type="range" step="10" class="volume-ctrl" title="Volume control"/>
+                <img src="./assets/album_icon2.png" class="album-icon2-img" alt="Album Icon 2" title="Album Icon 2"/>
+            </div>
+        </div>
+    </div>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script> -->
+     <script src="/script.js"></script>
+</body>
+</html>
