@@ -26,7 +26,7 @@ async function main() {
     console.log(songUL);
 
     for (const song of songs) {
-        songUL.innerHTML = songUL.innerHTML + song;
+        songUL.innerHTML = songUL.innerHTML + `<li><a href="${song}">${song.split("/").pop().replaceAll("%20", " ").replaceAll("%5", " ").replaceAll("Csongs", "").replaceAll("C", "")}</a></li>`;
     }
 
     var audio = new Audio(songs[0]);

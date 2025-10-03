@@ -310,6 +310,12 @@ a {
     padding: 0 12px;
 
 }
-/* .songList ol li{
+.songList ol li{
     list-style-type: decimal;
-} */
+    /* display: flex; */
+}
+
+
+.invert{
+    filter: invert(1);
+}
