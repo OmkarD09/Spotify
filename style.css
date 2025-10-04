@@ -312,10 +312,41 @@ a {
 }
 .songList ol li{
     list-style-type: decimal;
-    /* display: flex; */
+    display: flex;
+    gap: 34px;
+    cursor: pointer;
+    padding: 12px 0;
+    border: 1px solid white;
+    margin: 12px;
+    padding: 13px;
+    border-radius: 5px;
 }
 
 
 .invert{
     filter: invert(1);
+}
+
+.playnow{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.playnow span{
+    font-size: 15px;
+    width: 80px;
+    padding : 8px;
+}
+
+
+
+
+.songList .info {
+    font-size: 13px;
+    width: 344px;
+}
+
+.info div {
+    word-break: break-all;
 }
