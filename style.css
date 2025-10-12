@@ -424,3 +424,24 @@ a {
     border-radius: 100px;
     height: 0.2rem;
 }  */
+  .card {
+    background-color: #232323;
+    width: 150px;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-left: 1.5rem;
+    margin-top: 1rem;
+    cursor: pointer; /* Adds a hand cursor on hover */
+    
+    /* This is the key for the smooth animation! */
+    /* It animates changes to transform and box-shadow over 0.2 seconds. */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.card:hover {
+    /* This makes the card 5% bigger and moves it up by 5px */
+    transform: scale(1.05) translateY(-5px);
+    
+    /* This adds a more pronounced shadow to make it look "lifted" */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
