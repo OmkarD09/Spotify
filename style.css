@@ -16,8 +16,10 @@ body {
     width: 340px;
     border-radius: 1rem;   /* 1rem=16px for a full screen */
     margin-right: 0.5rem;
-
+    height: 130vh;
+    
 }
+
 .main-content {
     background-color: #121212;
     flex: 1;
@@ -26,12 +28,26 @@ body {
     padding: 0 1.5rem 0 1.5rem;
 
 }
+.main-content {
+    /* Keep these for scrolling functionality */
+    height: 100vh; /* Or any fixed height */
+    overflow-y: scroll; 
+    /* ... other styles */
+    
+    /* HIDE SCROLLBAR IN CHROME, SAFARI, OPERA, NEW EDGE */
+    scrollbar-width: none;  /* Also for Firefox, see Method 2 */
+}
+
+/* HIDE SCROLLBAR IN CHROME, SAFARI, NEW EDGE (webkit) */
+.main-content::-webkit-scrollbar {
+    display: none;
+}
 .music-player {
     background-color: black;
     position: fixed;
     bottom: 0;
     width: 100%;
-    height: 72px;
+    height: 75px;
 }
 a { 
     text-decoration: none;
@@ -185,6 +201,7 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: fixed;;
 }
 .album {
     width: 25%;
@@ -197,20 +214,37 @@ a {
     /* background: orange; */
 }
 .control2 {
-    width: 25%;
+    width: 30%;
     background: black;
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    margin-right: 30px;
+    height: auto;
     /* flex: auto; */
+}
+.ctrl-img5 {
+    height: 1.25rem;
+    width: 1.25rem;
+    margin-right: 0.75rem;
+    cursor: pointer;
+    filter: invert(1);
 }
 .player-control-icon {
     height: 1rem;
     margin-right: 1.75rem;
     opacity: 0.7;
+    margin-bottom: 0.5rem;
 }
 .player-control-icon:hover {
     opacity: 1;
+    cursor: pointer;
+}
+.player-icon-play {
+    height: 1.5rem;
+    margin-right: 1.75rem;
+    opacity: 1;
+    filter: invert();
 }
 .player-control {
     display: flex;
@@ -221,6 +255,14 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.playback-bar span{
+    font-size: 0.75rem;
+    opacity: 0.7;
+    margin: 0 0.75rem;
+    /* margin-top: 0.75rem;
+    align-items: center; */
 }
 .progress-bar {
     width: 70%;
@@ -313,17 +355,19 @@ a {
 .songList ol li{
     list-style-type: decimal;
     display: flex;
-    gap: 34px;
+    gap: 12px;
     cursor: pointer;
     padding: 12px 0;
     border: 1px solid white;
-    margin: 12px;
-    padding: 13px;
+    margin: 12px 4px 12px 4px;
+    padding: 10px;
     border-radius: 5px;
+    justify-content:space-between;
+    align-items: center;
 }
 
 
-.invert{
+ .invert{
     filter: invert(1);
 }
 
@@ -333,10 +377,14 @@ a {
     align-items: center;
 }
 
+.playnow{
+    padding-left: 12px;
+
+} 
 .playnow span{
-    font-size: 15px;
-    width: 80px;
-    padding : 8px;
+    font-size: 10px;
+    width: 64px;
+    padding: 0px 0px 0px 12px;
 }
 
 
@@ -345,8 +393,16 @@ a {
 .songList .info {
     font-size: 13px;
     width: 344px;
+
 }
 
-.info div {
-    word-break: break-all;
+.songList{
+    height: 438px;
+    overflow-y: auto;
+    scrollbar-width: none;  /* Also for Firefox, see Method 2 */
+
 }
+
+
+
+
