@@ -12,17 +12,28 @@ let isRepeatOn = false; // Track repeat state
 
 // Map card titles to song files
 const cardToSongMap = {
+    // Existing Songs
     "Agar Tum Saath Ho": "./songs/Agar Tum Saath Ho.mp3",
     "Phir Mohabbat": "./songs/Phir Mohabbat.mp3",
     "Humdard": "./songs/Humdard.mp3",
     "Let Down": "./songs/Let Down.mp3",
     "No Surprises": "./songs/No Surprises.mp3",
-    "Creep": "./songs/creep.mp3"
+    "Creep": "./songs/creep.mp3",
+    // ADDED: New songs from your HTML
+    "Tujhe Kitna Chahne Lage": "./songs/Tujhe Kitna Chahne Lage.mp3",
+    "Kalank": "./songs/Kalank.mp3",
+    "For A Reason": "./songs/For A Reason.mp3",
+    "Winning Speech": "./songs/Winning Speech.mp3",
+    "Wavy": "./songs/Wavy.mp3",
+    "Jee Ni Lagda": "./songs/Jee Ni Lagda.mp3",
+    "I Really Do...": "./songs/I Really Do.mp3",
+    "All I Need": "./songs/All I Need.mp3"
 };
 
 async function getSongs() {
     // Direct file list - no server dependency
     console.log("Using direct file list (no server needed)");
+    // UPDATED: Added all new song files to the list
     const songList = [
         "./songs/Agar Tum Saath Ho.mp3",
         "./songs/creep.mp3",
@@ -30,7 +41,15 @@ async function getSongs() {
         "./songs/Let Down.mp3",
         "./songs/No Surprises.mp3",
         "./songs/Phir Mohabbat.mp3",
-        "./songs/Pretty Woman .mp3"
+        "./songs/Pretty Woman .mp3",
+        "./songs/Tujhe Kitna Chahne Lage.mp3", // ADDED
+        "./songs/Kalank.mp3", // ADDED
+        "./songs/For A Reason.mp3", // ADDED
+        "./songs/Winning Speech.mp3", // ADDED
+        "./songs/Wavy.mp3", // ADDED
+        "./songs/Jee Ni Lagda.mp3", // ADDED
+        "./songs/I Really Do.mp3", // ADDED
+        "./songs/All I Need.mp3" // ADDED
     ];
 
     // Test accessibility of each song
@@ -226,12 +245,12 @@ const playMusic = (track, index = null) => {
     if (track.includes("./songs/")) {
         displayName = track.replace("./songs/", "");
     }
-    displayName = displayName.replaceAll(".mp3", "").replaceAll("%20", " ");
+    displayName = displayName.replaceAll(".mp3", "").replaceAll("%20", " ").replace(".mp3", ""); // Clean up name
     document.querySelector("#song-info").innerHTML = displayName;
 
-    // Update album art and artist info
+    // UPDATED: Added album art and artist info for all new songs
     if (track.includes("Humdard")) {
-        document.querySelector("#mp-img2").src = "./assets/Humdard.jpeg";
+        document.querySelector("#mp-img2").src = "./assets/humdard.jpeg";
         document.querySelector(".mp-a2").innerHTML = "Arijit Singh";
     } else if (track.includes("Agar Tum Saath Ho")) {
         document.querySelector("#mp-img2").src = "./assets/agartumsaathho.jpeg";
@@ -251,6 +270,30 @@ const playMusic = (track, index = null) => {
     } else if (track.includes("Pretty Woman")) {
         document.querySelector("#mp-img2").src = "./assets/prettywoman.jpeg";
         document.querySelector(".mp-a2").innerHTML = "Shankar Mahadevan";
+    } else if (track.includes("Tujhe Kitna Chahne Lage")) { // ADDED
+        document.querySelector("#mp-img2").src = "./assets/tujhekitnachahnelage.jpeg";
+        document.querySelector(".mp-a2").innerHTML = "Arijit Singh";
+    } else if (track.includes("Kalank")) { // ADDED
+        document.querySelector("#mp-img2").src = "./assets/kalank.jpeg";
+        document.querySelector(".mp-a2").innerHTML = "Arijit Singh";
+    } else if (track.includes("For A Reason")) { // ADDED
+        document.querySelector("#mp-img2").src = "./assets/forareason.jpeg";
+        document.querySelector(".mp-a2").innerHTML = "Karan Aujla, Ikky";
+    } else if (track.includes("Winning Speech")) { // ADDED
+        document.querySelector("#mp-img2").src = "./assets/winningspeech.jpeg";
+        document.querySelector(".mp-a2").innerHTML = "Karan Aujla, Ikky";
+    } else if (track.includes("Wavy")) { // ADDED
+        document.querySelector("#mp-img2").src = "./assets/wavy.jpeg";
+        document.querySelector(".mp-a2").innerHTML = "Karan Aujla, Ikky";
+    } else if (track.includes("Jee Ni Lagda")) { // ADDED
+        document.querySelector("#mp-img2").src = "./assets/jeenilagda.jpeg";
+        document.querySelector(".mp-a2").innerHTML = "Karan Aujla, Ikky";
+    } else if (track.includes("I Really Do")) { // ADDED
+        document.querySelector("#mp-img2").src = "./assets/ireallydo.jpeg";
+        document.querySelector(".mp-a2").innerHTML = "Karan Aujla, Ikky";
+    } else if (track.includes("All I Need")) { // ADDED
+        document.querySelector("#mp-img2").src = "./assets/allineed.jpeg";
+        document.querySelector(".mp-a2").innerHTML = "Radiohead";
     }
     
     // Update the like button's appearance for the new song
@@ -405,6 +448,70 @@ function updateLibrary() {
     });
 }
 
+// Add this new function anywhere before your main() function
+function setupSearch() {
+    const searchInput = document.getElementById('searchInput');
+    const cards = document.querySelectorAll('.card');
+    const cardContainers = document.querySelectorAll('.card-container');
+    const headings = document.querySelectorAll('.main-content h2');
+
+    searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase();
+
+        // Filter the song cards
+        cards.forEach(card => {
+            const title = card.querySelector('.card-title').textContent.toLowerCase();
+            if (title.includes(query)) {
+                card.style.display = ''; // Show the card
+            } else {
+                card.style.display = 'none'; // Hide the card
+            }
+        });
+
+        // Hide headings if all their songs are hidden
+        headings.forEach(heading => {
+            const container = heading.nextElementSibling;
+            if (container && container.classList.contains('card-container')) {
+                // Check if any card in this container is visible
+                const isAnyCardVisible = [...container.querySelectorAll('.card')].some(card => card.style.display !== 'none');
+                
+                if (isAnyCardVisible) {
+                    heading.style.display = ''; // Show heading
+                } else {
+                    heading.style.display = 'none'; // Hide heading
+                }
+            }
+        });
+    });
+}
+
+function setupHomeButton() {
+    const homeButton = document.getElementById('homeButton');
+    
+    homeButton.addEventListener('click', () => {
+        // Select all cards and headings
+        const cards = document.querySelectorAll('.card');
+        const headings = document.querySelectorAll('.main-content h2');
+        const searchInput = document.getElementById('searchInput');
+
+        // Make all headings visible
+        headings.forEach(heading => {
+            heading.style.display = ''; // Resets to default display
+        });
+        
+        // Make all song cards visible
+        cards.forEach(card => {
+            card.style.display = ''; // Resets to default display
+        });
+
+        // Clear the search bar
+        if (searchInput) {
+            searchInput.value = '';
+        }
+
+        console.log("Navigated back to Home. All items shown.");
+    });
+}
 
 async function main() {
     // Get the list of all the songs
@@ -428,6 +535,12 @@ async function main() {
 
     // Setup click events for cards
     setupCardClickEvents();
+
+    // Setup search functionality
+    setupSearch();
+
+    // Setup home button functionality
+    setupHomeButton();
 
     // Listen for timeupdate event to update the progress bar and time
     currentSong.addEventListener("timeupdate", () => {

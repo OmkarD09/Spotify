@@ -445,3 +445,26 @@ a {
     /* This adds a more pronounced shadow to make it look "lifted" */
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
 }
+
+/* Add this to your style.css file */
+
+#searchInput {
+    background-color: #242424;
+    color: #fff;
+    border: 1px solid #4d4c4c;
+    border-radius: 500px; /* Makes it pill-shaped */
+    padding: 0.75rem 1rem;
+    width: 350px;
+    font-family: "Montserrat", serif;
+    font-size: 0.9rem;
+    margin-left: 1rem;
+}
+
+#searchInput:focus {
+    outline: 2px solid #fff; /* Adds a white outline on click */
+    border-color: transparent;
+}
+
+#searchInput::placeholder {
+    color: #b3b3b3;
+}
