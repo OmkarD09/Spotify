@@ -42,14 +42,14 @@ async function getSongs() {
         "./songs/No Surprises.mp3",
         "./songs/Phir Mohabbat.mp3",
         "./songs/Pretty Woman .mp3",
-        "./songs/Tujhe Kitna Chahne Lage.mp3", // ADDED
-        "./songs/Kalank.mp3", // ADDED
-        "./songs/For A Reason.mp3", // ADDED
-        "./songs/Winning Speech.mp3", // ADDED
-        "./songs/Wavy.mp3", // ADDED
-        "./songs/Jee Ni Lagda.mp3", // ADDED
-        "./songs/I Really Do.mp3", // ADDED
-        "./songs/All I Need.mp3" // ADDED
+        "./songs/Tujhe Kitna Chahne Lage.mp3", 
+        "./songs/Kalank.mp3", 
+        "./songs/For A Reason.mp3", 
+        "./songs/Winning Speech.mp3", 
+        "./songs/Wavy.mp3", 
+        "./songs/Jee Ni Lagda.mp3", 
+        "./songs/I Really Do.mp3", 
+        "./songs/All I Need.mp3" 
     ];
 
     // Test accessibility of each song
@@ -754,3 +754,14 @@ if (likeButton) {
 } else {
     console.error("Like button with id='like-button' not found!");
 }
+// GATEKEEPER: Check if the user is logged in
+if (sessionStorage.getItem('loggedIn') !== 'true') {
+    // If not logged in, redirect them to the login page
+    window.location.href = 'login.html';
+}
+
+
+// --- YOUR EXISTING CODE STARTS BELOW ---
+// let currentSong = new Audio();
+// let currFolder;
+// ...etc
