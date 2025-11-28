@@ -381,7 +381,7 @@ const playPreviousSong = () => {
     playMusic(prevTrackPath, currentSongIndex);
 }
 
-// Add this helper function at the top of your script
+
 function secondsToMinutesSeconds(seconds) {
     if (isNaN(seconds) || seconds < 0) {
         return "00:00";
@@ -448,7 +448,7 @@ function updateLibrary() {
     });
 }
 
-// Add this new function anywhere before your main() function
+
 function setupSearch() {
     const searchInput = document.getElementById('searchInput');
     const cards = document.querySelectorAll('.card');
@@ -530,7 +530,6 @@ async function main() {
     updateLibrary();
 
 
-    // Attach an event listener to each song in the playlist (This seems to be for another list, but we'll adapt it for the library)
     // The main logic is now handled inside updateLibrary()
 
     // Setup click events for cards
@@ -760,8 +759,3 @@ if (sessionStorage.getItem('loggedIn') !== 'true') {
     window.location.href = 'login.html';
 }
 
-
-// --- YOUR EXISTING CODE STARTS BELOW ---
-// let currentSong = new Audio();
-// let currFolder;
-// ...etc
